@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PakPort | Pakistan to Your Doorstep</title>
+
+<style>
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #faf7ef;
+  color: #123f32;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+  background: #fffdf7;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #123f3215;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #123f32;
+  color: #e5c474;
+  display: grid;
+  place-items: center;
+}
+
+.logo span { color: #c69a4c; }
+
+nav a {
+  color: #123f32;
+  text-decoration: none;
+  margin: 0 7px;
+  font-size: 13px;
+}
+
+.btn {
+  display: inline-block;
+  background: #123f32;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #d5ad65;
+  color: #123f32;
+  transform: translateY(-3px);
+}
+
+/* HERO HEADER */
+
+.hero {
+  min-height: 410px;
+  padding: 45px 6%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #fff2d9 0%, #fff2d9e8 35%, #fff2d900 100%),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-text {
+  max-width: 550px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: #a77a30;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(43px, 6vw, 72px);
+  line-height: 0.98;
+  margin: 18px 0;
+}
+
+.hero p { line-height: 1.8; }
+
+.hero-art {
+  position: absolute;
+  width: 360px;
+  height: 320px;
+  right: 7%;
+  top: 35px;
+  display: grid;
+  place-items: center;
+}
+
+.globe {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(
+      0deg, transparent 0 35px, #ffffff25 36px 37px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent 0 35px, #ffffff25 36px 37px
+    ),
+    radial-gradient(circle at 30% 25%, #83b99b, #24765a 55%, #073d30);
+  border: 3px solid #d5ad65;
+  box-shadow: 0 20px 40px #123f3230;
+  animation: float 4s ease-in-out infinite;
+}
+
+.orbit {
+  position: absolute;
+  width: 340px;
+  height: 100px;
+  border: 4px solid #e6c36c;
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+.plane {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  font-size: 42px;
+  animation: fly 5s ease-in-out infinite;
+}
+
+.parcel {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  padding: 24px 20px;
+  background: #d5ad65;
+  border: 2px solid #fff0cc;
+  box-shadow: 0 10px 20px #123f3230;
+  font-weight: bold;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fly {
+  50% { transform: translate(20px, -10px) rotate(-10deg); }
+}
+
+section { padding: 55px 6%; }
+
+.heading { text-align: center; }
+
+h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+
+.heading p {
+  color: #68766d;
+  line-height: 1.7;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1150px;
+  margin: 30px auto;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #123f3212;
+  transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-6px); }
+
+.card img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+
+.card-content { padding: 20px; }
+
+.card p {
+  color: #65766c;
+  line-height: 1.7;
+}
+
+.steps {
+  background: #123f32;
+  color: white;
+}
+
+.steps h2 { color: white; }
+.steps .heading p { color: #e1e9e2; }
+
+.steps .card {
+  background: #1b4b3c;
+  color: white;
+  padding: 22px;
+}
+
+.steps .card p { color: #e1e9e2; }
+
+.number {
+  font-size: 30px;
+  color: #e4c276;
+  font-weight: bold;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.about p { line-height: 1.8; color: #65766c; }
+
+.promise {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.promise div {
+  text-align: center;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 12px;
+}
+
+.promise p { font-size: 13px; color: #65766c; }
+
+/* CUSTOMER REVIEWS */
+
+.reviews { background: #f0eadb; }
+
+.review-card {
+  padding: 22px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px #123f3210;
+}
+
+.stars {
+  color: #c99b4b;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.review-card p {
+  line-height: 1.7;
+  color: #65766c;
+}
+
+.review-name {
+  font-weight: bold;
+  color: #123f32;
+  font-size: 14px;
+}
+
+.review-note {
+  text-align: center;
+  font-size: 12px;
+  color: #65766c;
+}
+
+/* FAQ */
+
+.faq-list {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+details {
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px #123f3210;
+}
+
+summary {
+  padding: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+summary::after {
+  content: "+";
+  color: #bd9146;
+  font-size: 20px;
+}
+
+details[open] summary::after { content: "-"; }
+
+details p {
+  padding: 0 18px 18px;
+  margin: 0;
+  line-height: 1.7;
+  color: #65766c;
+}
+
+.contact {
+  background:
+    linear-gradient(#123f32eF, #123f32eF),
+    url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
+  text-align: center;
+  padding: 45px 20px;
+  border-radius: 16px;
+  color: white;
+}
+
+.contact h2 { color: #e4c276; }
+
+footer {
+  background: #092f26;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  line-height: 1.8;
+}
+
+footer a {
+  color: #e4c276;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 800px) {
+  nav { flex-wrap: wrap; gap: 12px; }
+  nav .links { width: 100%; }
+  nav a { margin: 5px; }
+  .hero { padding: 45px 6%; }
+  .hero-art { opacity: 0.22; right: -80px; }
+  .cards { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .promise { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">P</div>
+    <div>Pak<span>Port</span></div>
+  </div>
+
+  <div class="links">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#promise">Our Promise</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+
+  <a class="btn"
+     href="https://forms.gle/74ws5JNxp5HzbJ4n9"
+     target="_blank" rel="noopener">Request a Product</a>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-text">
+    <div class="eyebrow">SHOP PAKISTAN. RECEIVE WORLDWIDE.</div>
+    <h1>From Pakistan<br>to Your Doorstep.</h1>
+    <p>
+      Your personal shopping gateway to Pakistan.
+      From favourite brands to hidden treasures in local bazaars,
+      discover products from home wherever you live.
+    </p>
+    <a class="btn" href="#services">Explore Services</a>
+    <a class="btn"
+       href="https://forms.gle/74ws5JNxp5HzbJ4n9"
+       target="_blank" rel="noopener"
+       style="background:transparent;color:#123f32;border:1px solid #123f32">
+       Request a Product
+    </a>
+  </div>
+<div>
+  
+.hero {
+  min-height: 430px;
+  padding: 55px 6%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #fff3d9 0%, #fff3d9dd 34%, transparent 65%),
+    url("Global Airfreight Panorama(1).png") center center / cover no-repeat;
+}
+</div>
+<div>
+.hero-text {
+  max-width: 550px;
+  position: relative;
+  z-index: 2;
+}
+</div>
+
+</header>
+
+<section id="services">
+  <div class="heading">
+    <div class="eyebrow">WHAT WE OFFER</div>
+    <h2>Our Services</h2>
+    <p>Everything you love about shopping in Pakistan, made personal.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=700&q=80" alt="Market displays">
+      <div class="card-content">
+        <h3>Local Market Shopping</h3>
+        <p>Discover traditional products and hidden treasures from local markets.</p>
+        <a class="btn" href="https://forms.gle/74ws5JNxp5HzbJ4n9" target="_blank" rel="noopener">Request Item</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80" alt="Clothing store">
+      <div class="card-content">
+        <h3>Branded Store Shopping</h3>
+        <p>Request products from Pakistani brands, boutiques and shops.</p>
+        <a class="btn" href="https://forms.gle/74ws5JNxp5HzbJ4n9" target="_blank" rel="noopener">Request Item</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=700&q=80" alt="Delivery parcel">
+      <div class="card-content">
+        <h3>International Delivery</h3>
+        <p>Explore shipping options for products you want delivered abroad.</p>
+        <a class="btn" href="https://forms.gle/74ws5JNxp5HzbJ4n9" target="_blank" rel="noopener">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="heading">
+    <div class="eyebrow">SIMPLE STEPS</div>
+    <h2>How It Works</h2>
+    <p>A simple process to begin your shopping request.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="number">01</div>
+      <h3>Send Your Request</h3>
+      <p>Share a product name, picture or link.</p>
+    </div>
+    <div class="card">
+      <div class="number">02</div>
+      <h3>Check Availability</h3>
+      <p>Check whether the product can be sourced.</p>
+    </div>
+    <div class="card">
+      <div class="number">03</div>
+      <h3>Confirm Details</h3>
+      <p>Review estimated prices and shipping options before approval.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <div class="eyebrow">OUR STORY</div>
+      <h2>Bringing Pakistan Closer to You</h2>
+      <p>
+        PakPort is a personal shopping service concept for overseas
+        Pakistanis. We aim to connect customers with local markets,
+        independent sellers, boutiques and established brands.
+      </p>
+      <h3>Our Vision</h3>
+      <p>Make Pakistani products easier to discover around the world.</p>
+      <h3>Our Mission</h3>
+      <p>Connect overseas Pakistanis with products and businesses from home.</p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=900&q=80" alt="Traditional colourful crafts">
+  </div>
+</section>
+
+<section id="promise">
+  <div class="heading">
+    <div class="eyebrow">OUR COMMITMENT</div>
+    <h2>Why Choose PakPort?</h2>
+  </div>
+
+  <div class="promise">
+    <div><h3>More Variety</h3><p>Local and branded products</p></div>
+    <div><h3>Personal Service</h3><p>Requests based on your needs</p></div>
+    <div><h3>Clear Pricing</h3><p>Costs explained before approval</p></div>
+    <div><h3>Global Reach</h3><p>Explore delivery options abroad</p></div>
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="heading">
+    <div class="eyebrow">CUSTOMER STORIES</div>
+    <h2>Customer Reviews</h2>
+    <p>Trust and good service are at the heart of our idea.</p>
+  </div>
+
+  <div class="cards">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"I would love an easy way to find products from Pakistani local markets while living abroad."</p>
+      <div class="review-name">Sample Review - Overseas Shopper</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Being able to request a product with a picture would make shopping much more convenient."</p>
+      <div class="review-name">Sample Review - Online Shopper</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Clear product and delivery costs would help me decide before placing an order."</p>
+      <div class="review-name">Sample Review - Potential Customer</div>
+    </div>
+  </div>
+
+  <p class="review-note">
+    These are illustrative sample reviews, not verified customer testimonials.
+    Replace them with genuine feedback when available.
+  </p>
+</section>
+
+<!-- INTERACTIVE FAQ -->
+<section id="faq">
+  <div class="heading">
+    <div class="eyebrow">NEED HELP?</div>
+    <h2>Frequently Asked Questions</h2>
+    <p>Click any question to read its answer.</p>
+  </div>
+
+  <div class="faq-list">
+    <details>
+      <summary>What is PakPort?</summary>
+      <p>PakPort is a personal shopping service concept designed to help overseas Pakistanis request products from Pakistani markets and stores.</p>
+    </details>
+
+    <details>
+      <summary>What products can I request?</summary>
+      <p>You can submit requests for suitable products from local markets, boutiques and Pakistani brands. Availability depends on the item and seller.</p>
+    </details>
+
+    <details>
+      <summary>How do I request a product?</summary>
+      <p>Click any Request a Product button and fill out our Google Form with the product name, link or description.</p>
+    </details>
+
+    <details>
+      <summary>How much does the service cost?</summary>
+      <p>The cost would depend on the product, service fee and shipping destination. A real service should confirm estimated costs before purchase.</p>
+    </details>
+
+    <details>
+      <summary>Can PakPort deliver to my country?</summary>
+      <p>International delivery would depend on the destination, shipping availability, customs rules and the product being shipped.</p>
+    </details>
+
+    <details>
+      <summary>Does submitting the form place an order?</summary>
+      <p>No. The form is a request for information and does not itself confirm a purchase or payment.</p>
+    </details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div class="eyebrow" style="color:#e4c276">GET IN TOUCH</div>
+    <h2>Have a Product in Mind?</h2>
+    <p>Tell us what you are looking for in Pakistan.</p>
+    <a class="btn"
+       style="background:#e4c276;color:#123f32"
+       href="https://forms.gle/74ws5JNxp5HzbJ4n9"
+       target="_blank" rel="noopener">
+       Open Google Form
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="justify-content:center">
+    <div class="logo-icon">P</div>
+    <div>Pak<span>Port</span></div>
+  </div>
+  <p>Shop Pakistan. Receive Worldwide.</p>
+  <p>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </p>
+  <small>2026 PakPort | Website concept</small>
+</footer>
+
+</body>
+</html>
